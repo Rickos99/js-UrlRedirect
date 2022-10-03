@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="referrer" content="no-referrer" />
+        <title>Redirecting soon...</title>
+    </head>
+    <body>
+        <p id="enable-js-prompt">If you are not redirected, make sure you have JavaScript enabled.</p>
+        <script>
+            document.getElementById("enable-js-prompt").style.display = "none";
+
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var c = url.searchParams.get("redirect");
+            if (c == null) {
+                document.write("No redirect link found.");
+                document.close();
+            } else {
+                document.write("Redirecting soon...");
+                window.location.replace(c);
+            }
+        </script>
+    </body>
+</html>
